@@ -14,6 +14,7 @@ public class LeapYear {
         }
     }
 
+<<<<<<< HEAD
     /** Compute if year is Leap year
      *
      * @param year to be analyzed
@@ -26,6 +27,8 @@ public class LeapYear {
         return false;
     }
 
+=======
+>>>>>>> 6fc6b4c (Initial commit with lab1 and libraries submodule)
     /** Must be provided an integer as a command line argument ARGS. */
     public static void main(String[] args) {
         if (args.length < 1) {
