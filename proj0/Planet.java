@@ -17,7 +17,7 @@ public class Planet {
 		imgFileName = img;
 	}
 
-	public Planet(Body p){
+	public Planet(Planet p){
 		xxPos = p.xxPos;
 		yyPos = p.yyPos;
 		xxVel = p.xxVel;
