@@ -7,7 +7,7 @@ public class ArrayDeque<T> {
     private int front;
     /**last index*/
     private int last;
-    public ArrayDeque(){
+    public ArrayDeque() {
         array = (T[]) new Object[8];
         size = 0;
         length = 8;
@@ -17,13 +17,13 @@ public class ArrayDeque<T> {
 //    public ArrayDeque(ArrayDeque other){
 //
 //    }
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
-    public int size(){
+    public int size() {
         return size;
     }
-    public void grow(){
+    private void grow() {
         T[] newArray = (T[]) new Object[length * 2];
         int ptr1 = front;
         int ptr2 = length;
@@ -38,15 +38,15 @@ public class ArrayDeque<T> {
         length *= 2;
     }
 
-    public int plusOne(int p, int l){
+    private int plusOne(int p, int l) {
         p %= l;
-        if (p == l - 1){
+        if (p == l - 1) {
             return 0;
         }
         return p + 1;
     }
 
-    public int minusOne(int p){
+    private int minusOne(int p) {
         if (p == 0){
             return length - 1;
         }
@@ -66,8 +66,8 @@ public class ArrayDeque<T> {
         array = newArray;
         length /= 2;
     }
-    public void addFirst(T item){
-        if (size == length - 1){
+    public void addFirst(T item) {
+        if (size == length - 1) {
             grow();
         }
         front = minusOne(front);
@@ -76,11 +76,11 @@ public class ArrayDeque<T> {
     }
 
 
-    public T removeFirst(){
+    public T removeFirst() {
         if (length >= 16 && length / size >= 4){
             shrink();
         }
-        if (size == 0){
+        if (size == 0) {
             return null;
         }
         T ret = array[front];
@@ -88,19 +88,19 @@ public class ArrayDeque<T> {
         size --;
         return ret;
     }
-    public void addLast(T item){
-        if (size == length - 1){
+    public void addLast(T item) {
+        if (size == length - 1) {
             grow();
         }
         array[last] = item;
         last = plusOne(last, length);
         size++;
     }
-    public T removeLast(){
-        if (length >= 16 && length / size >= 4){
+    public T removeLast() {
+        if (length >= 16 && length / size >= 4) {
             shrink();
         }
-        if (size == 0){
+        if (size == 0) {
             return null;
         }
         last = minusOne(last);
@@ -108,20 +108,20 @@ public class ArrayDeque<T> {
         return array[last];
     }
 
-    public T get(int index){
-        if (index >= size){
+    public T get(int index) {
+        if (index >= size) {
             return null;
         }
         int ptr = front;
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++) {
             ptr = plusOne(ptr, length);
         }
         return array[ptr];
     }
 
-    public void printDeque(){
+    public void printDeque() {
         int ptr = front;
-        while(ptr != last){
+        while(ptr != last) {
             System.out.print(array[ptr] + " ");
             ptr = plusOne(ptr, length);
         }
