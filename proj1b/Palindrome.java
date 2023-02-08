@@ -32,7 +32,7 @@ public class Palindrome {
             return true;
         }
         int len = word.length();
-        for (int i = 0; i < len/2; i++) {
+        for (int i = 0; i < len / 2; i++) {
             if (!cc.equalChars(word.charAt(i), word.charAt(len - i - 1))) {
                 return false;
             }
