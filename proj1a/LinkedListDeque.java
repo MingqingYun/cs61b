@@ -50,7 +50,7 @@ public class LinkedListDeque<T> {
         Node newNode = new Node(item, sentinel.prev, sentinel);
         sentinel.prev.next = newNode;
         sentinel.prev = newNode;
-        size ++;
+        size++;
     }
     /** Returns true if deque is empty, false otherwise*/
     public boolean isEmpty() {
@@ -87,7 +87,7 @@ public class LinkedListDeque<T> {
     /**Removes and returns the item at the back of the deque.
      * If no such item exists, returns null.*/
     public T removeLast() {
-        if (size==0){
+        if (size == 0) {
             return null;
         }
         T ret = sentinel.prev.item;

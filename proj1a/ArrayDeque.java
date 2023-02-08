@@ -27,7 +27,7 @@ public class ArrayDeque<T> {
         T[] newArray = (T[]) new Object[length * 2];
         int ptr1 = front;
         int ptr2 = length;
-        while (ptr1 != last){
+        while (ptr1 != last) {
             newArray[ptr2] = array[ptr1];
             ptr1 = plusOne(ptr1, length);
             ptr2 = plusOne(ptr2, length * 2);
@@ -47,7 +47,7 @@ public class ArrayDeque<T> {
     }
 
     private int minusOne(int p) {
-        if (p == 0){
+        if (p == 0) {
             return length - 1;
         }
         return p - 1;
@@ -72,12 +72,12 @@ public class ArrayDeque<T> {
         }
         front = minusOne(front);
         array[front] = item;
-        size ++;
+        size++;
     }
 
 
     public T removeFirst() {
-        if (length >= 16 && length / size >= 4){
+        if (length >= 16 && length / size >= 4) {
             shrink();
         }
         if (size == 0) {
@@ -85,7 +85,7 @@ public class ArrayDeque<T> {
         }
         T ret = array[front];
         front = plusOne(front, length);
-        size --;
+        size--;
         return ret;
     }
     public void addLast(T item) {
@@ -121,7 +121,7 @@ public class ArrayDeque<T> {
 
     public void printDeque() {
         int ptr = front;
-        while(ptr != last) {
+        while (ptr != last) {
             System.out.print(array[ptr] + " ");
             ptr = plusOne(ptr, length);
         }
