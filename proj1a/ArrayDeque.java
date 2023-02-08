@@ -26,11 +26,11 @@ public class ArrayDeque<T> {
     public void grow(){
         T[] newArray = (T[]) new Object[length * 2];
         int ptr1 = front;
-        int ptr2 = last;
-        while (ptr1 != ptr2){
+        int ptr2 = length;
+        while (ptr1 != last){
             newArray[ptr2] = array[ptr1];
             ptr1 = plusOne(ptr1, length);
-            ptr2 = plusOne(ptr2, length);
+            ptr2 = plusOne(ptr2, length * 2);
         }
         front = length;
         last = ptr2;
@@ -88,14 +88,13 @@ public class ArrayDeque<T> {
         size --;
         return ret;
     }
-    public T addLast(T item){
+    public void addLast(T item){
         if (size == length - 1){
             grow();
         }
         array[last] = item;
         last = plusOne(last, length);
         size++;
-        return array[last];
     }
     public T removeLast(){
         if (length >= 16 && length / size >= 4){
