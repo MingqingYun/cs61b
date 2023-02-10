@@ -15,11 +15,11 @@ public class TestArrayDequeGold {
                 int addNum = StdRandom.uniform(1000);
                 int frontOrBack = StdRandom.uniform(2);
                 if (frontOrBack == 0) {
-                    log = "Adding " + addNum + " to front\n";
+                    log = "addFirst(" + addNum + ")\n";
                     testArray.addFirst(addNum);
                     stdArray.addFirst(addNum);
                 } else {
-                    log = "Adding " + addNum + " to back\n";
+                    log = "addLast(" + addNum + ")\n";
                     testArray.addLast(addNum);
                     stdArray.addLast(addNum);
                 }
@@ -30,22 +30,22 @@ public class TestArrayDequeGold {
                 Integer stdRemoveNumber = 1;
                 switch(x){
                     case 0:
-                        log = log + "Adding " + addNum + " to front\n";
+                        log = log + "addFirst(" + addNum + ")\n";
                         testArray.addFirst(addNum);
                         stdArray.addFirst(addNum);
                         break;
                     case 1:
-                        log = log + "Adding " + addNum + " to back\n";
+                        log = log + "addLast(" + addNum + ")\n";
                         testArray.addLast(addNum);
                         stdArray.addLast(addNum);
                         break;
                     case 2:
-                        log = log + "Removing front\n";
+                        log = log + "removeFirst()\n";
                         testRemoveNumber = testArray.removeFirst();
                         stdRemoveNumber = stdArray.removeFirst();
                         break;
                     case 3:
-                        log = log + "Removing last\n";
+                        log = log + "removeLast()\n";
                         testArray.removeLast();
                         stdArray.removeLast();
                         break;
