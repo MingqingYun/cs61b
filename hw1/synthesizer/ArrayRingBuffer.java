@@ -1,5 +1,4 @@
 package synthesizer;
-import synthesizer.AbstractBoundedQueue;
 import java.util.Iterator;
 
 public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
@@ -29,8 +28,8 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      */
     @Override
     public void enqueue(T x) {
-        if (isFull()){
-            throw new RuntimeException("Ring buffer overflow");
+        if (isFull()) {
+            throw new RuntimeException("Ring Buffer Overflow");
         }
         rb[last] = x;
         fillCount += 1;
@@ -44,8 +43,8 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      */
     @Override
     public T dequeue() {
-        if (isEmpty()){
-            throw new RuntimeException("Ring buffer underflow");
+        if (isEmpty()) {
+            throw new RuntimeException("Ring Buffer Underflow");
         }
         T oldest = rb[first];
         fillCount -= 1;
@@ -62,7 +61,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     }
 
 
-    // TODO: When you get to part 5, implement the needed code to support iteration.
+    //When you get to part 5, implement the needed code to support iteration.
     private class ArrayRingBufferIterator implements Iterator<T> {
         private int pos;
         private int curNum;
@@ -75,9 +74,9 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
             return curNum < fillCount;
         }
 
-        public T next(){
+        public T next() {
             T retValue = rb[pos];
-            pos = (pos + 1 ) % capacity;
+            pos = (pos + 1) % capacity;
             curNum++;
             return retValue;
         }
