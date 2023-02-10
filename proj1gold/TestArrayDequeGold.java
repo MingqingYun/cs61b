@@ -51,7 +51,7 @@ public class TestArrayDequeGold {
                         break;
                     default:
                 }
-                assertEquals(log, testRemoveNumber, stdRemoveNumber);
+                assertEquals(log, stdRemoveNumber, testRemoveNumber);
             }
         }
     }
